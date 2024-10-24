@@ -1,3 +1,4 @@
+# Cache
 ## What is a cache?
 The cache is small and fast storage that is used to improve the access time to memory. This is between registers on the CPU and memory. Caches use the principle of Locality. The principle of locality refers to the relatively small portion of the address space that a program accesses at any instant in time. There are two different types of locality:<br>
 1. Temporal Locality<br>
@@ -31,3 +32,5 @@ Mem<sub>stall cycles</sub> = IC X (MemAcess/Inst) X Miss Rate X Miss Penalty<br>
 Write Through - data is modified at all levels (cache and memory)
 Write Back - data is modified in blocks only in cache level
 
+## Block Placement
+### Fully Associative
