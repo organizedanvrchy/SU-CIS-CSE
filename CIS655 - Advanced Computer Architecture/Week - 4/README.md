@@ -20,7 +20,7 @@ Miss<br>
 Miss means that the data needs to be retrieved from a block in a lower level. The __Miss Rate__ is 1 - _Hit Rate_. The __Miss Penalty__ is the time taken to replace a block in the upper level and the time to deliver the block in the processor. 
 
 ## Cache Performance
-Memory stall cycles are the number of cycles where the CPU is waiting for memory access.
+Memory stall cycles are the number of cycles where the CPU is waiting for memory access.<br>
 CPU time = (CPU<sub>clock cycles</sub> + Mem<sub>stall cycles</sub>) X Cycle Time<br>
 Mem<sub>stall cycles</sub> = Number of Misses X Miss Penalty<br>
 Mem<sub>stall cycles</sub> = IC X (MemAcess/Inst) X Miss Rate X Miss Penalty<br>
