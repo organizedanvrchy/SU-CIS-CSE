@@ -13,7 +13,9 @@
 - Optimization Goals: <br>
   - Maximize execution speed (e.g., superscalar execution, out-of-order execution).
   - Enhance energy efficiency (e.g., dynamic voltage scaling). <br>
-  
+
+---
+
 ### 2. Communication
 - Role in Processor Design: <br>
   - Ensures data and control signals flow seamlessly between internal components (e.g., ALU, CU, caches) and external entities (e.g., memory, I/O). <br>
@@ -26,7 +28,9 @@
 - Optimization Goals: <br>
   - Reduce latency in data transfer.
   - Increase bandwidth to support high-throughput applications. <br>
-  
+
+---
+
 ### 3. Storage
   - Role in Processor Design: <br>
     - Provides the means to store and retrieve data and instructions required for computation. <br>
@@ -40,6 +44,8 @@
   - Optimization Goals: <br>
     - Hierarchical memory design for speed and efficiency.
     - Techniques like prefetching and cache coherency for faster access. <br>
+
+---
 
 ## Interplay Between the Building Blocks
 - Computation depends on Storage for fetching instructions and data.
