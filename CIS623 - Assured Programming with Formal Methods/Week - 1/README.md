@@ -425,4 +425,144 @@ Let \( R_1 = \{(2, 3), (3, 4)\} \) and \( R_2 = \{(1, 2), (2, 3)\} \):
 
 ---
 
+# Haskell Programming Language Overview
 
+## Introduction
+Haskell is a **purely functional programming language** that emphasizes immutability, first-class functions, and strong static typing. It is widely recognized for its use in academic and research environments but has also seen practical application in various industries such as finance, web development, and software engineering.
+
+## Key Features
+1. **Pure Functional Programming:**
+   - Haskell is a purely functional language, meaning that functions have no side effects and every expression is a value.
+   - Functions are first-class citizens, meaning they can be passed as arguments, returned from other functions, and assigned to variables.
+
+2. **Strong Static Typing:**
+   - Haskell features a **strongly typed** system with **type inference**, meaning the compiler can automatically deduce the types of expressions without requiring explicit type declarations.
+   - **Polymorphic types** and **type classes** enable powerful abstractions in Haskell.
+
+3. **Lazy Evaluation:**
+   - Haskell uses **lazy evaluation**, which means expressions are not evaluated until their values are actually needed. This allows for infinite data structures and greater control over performance optimization.
+
+4. **Immutability:**
+   - All data in Haskell is immutable by default. This means that once a value is assigned to a variable, it cannot be changed. This property leads to fewer bugs and more predictable programs.
+
+5. **Higher-Order Functions:**
+   - Functions in Haskell can accept other functions as arguments and can return functions as results, enabling powerful abstractions and compositionality.
+
+6. **Concurrent Programming:**
+   - Haskell provides tools for **concurrent and parallel programming**, such as lightweight threads, software transactional memory (STM), and the `async` package, making it well-suited for scalable applications.
+
+## Syntax and Example
+### Function Definition:
+A basic function in Haskell is defined as follows:
+```haskell
+double :: Int -> Int
+double x = x * 2
+```
+- **double** takes an Int as an input and returns another Int. The :: syntax denotes the function's type
+
+Lists are a fundamental data structure in Haskell.
+```haskell
+sumList :: [Int] -> Int
+sumList [] = 0
+sumList (x:xs) = x + sumList xs
+```
+- This function recursively calculates the sum of a list of integers.
+
+Haskell’s type classes allow for generic programming. For example, the Eq type class enables equality checking:
+```
+data Point = Point Int Int
+
+instance Eq Point where
+    (Point x1 y1) == (Point x2 y2) = (x1 == x2) && (y1 == y2)
+```
+- **Eq** defines how two **Point** values can be compared for equality
+
+## Advanced Concepts
+### Monads:
+- Monads are a powerful abstraction in Haskell for handling side effects, such as I/O operations or state changes, in a pure functional way. <br>
+- Common monads include Maybe, IO, and Either.
+
+### Lazy Evaluation:
+- Haskell’s lazy evaluation allows for the creation of infinite data structures like streams or lazy lists that can be evaluated as needed.
+
+### Type Inference:
+- Haskell’s type system is powerful enough to allow for the automatic inference of types, reducing the need for explicit type annotations in many cases.
+
+---
+
+# Access Control, Security, and Trust
+## Introduction
+Access control, security, and trust are foundational concepts in the design and implementation of secure systems. These concepts govern how users and systems interact with resources, ensuring that only authorized entities have access to sensitive data and systems.
+
+## Access Control
+Access control refers to the mechanisms and policies that restrict or allow access to resources or information based on predefined criteria. It ensures that users or systems can only access resources they are permitted to interact with, based on their roles or identities.
+
+### Types of Access Control:
+1. **Discretionary Access Control (DAC):**
+   - The owner of a resource has the discretion to grant or revoke access permissions to other users.
+   - Example: File permissions in operating systems like Linux and Windows.
+
+2. **Mandatory Access Control (MAC):**
+   - Access is restricted based on a set of policies enforced by the system, not at the discretion of the resource owner.
+   - Example: SELinux, which enforces strict security policies on file systems.
+
+3. **Role-Based Access Control (RBAC):**
+   - Access permissions are granted based on roles rather than individual user identities.
+   - Example: Users are assigned roles like "Admin," "Editor," or "Viewer," each with different access rights.
+
+4. **Attribute-Based Access Control (ABAC):**
+   - Access decisions are made based on attributes (such as the user's department, time of access, etc.) rather than roles or identity alone.
+   - Example: A user in the "HR" department may have access to sensitive employee records.
+
+## Security
+Security in computing involves protecting systems and data from unauthorized access, disclosure, modification, or destruction. It encompasses a wide range of practices, including encryption, authentication, integrity checking, and more.
+
+### Key Concepts in Security:
+1. **Confidentiality:**
+   - Ensuring that sensitive data is only accessible by authorized users or systems.
+   - Achieved through encryption and secure transmission channels.
+
+2. **Integrity:**
+   - Ensuring that data remains unaltered and accurate, preventing unauthorized modifications.
+   - Techniques like hashing and digital signatures are used to maintain integrity.
+
+3. **Availability:**
+   - Ensuring that resources and data are available when needed by authorized users.
+   - Measures include fault tolerance, redundancy, and protection against denial-of-service attacks.
+
+4. **Authentication:**
+   - Verifying the identity of users or systems attempting to access a resource.
+   - Common methods: passwords, biometrics, and multi-factor authentication.
+
+5. **Authorization:**
+   - Granting or denying access to resources based on authentication.
+   - Often implemented using access control models such as DAC, MAC, or RBAC.
+
+6. **Auditing and Monitoring:**
+   - Tracking user activities and system behavior to detect and respond to potential security breaches.
+   - Tools like intrusion detection systems (IDS) and security information and event management (SIEM) help monitor activities.
+
+## Trust
+Trust in security refers to the confidence that a system, user, or entity will act in a predictable and secure manner. In the context of access control and security, trust is built through the use of robust authentication mechanisms, secure communication protocols, and transparent security practices.
+
+### Types of Trust:
+1. **User Trust:**
+   - Trust in the behavior and intentions of users interacting with the system. Users are typically trusted based on their identity, role, or previous behavior within the system.
+
+2. **System Trust:**
+   - Trust in the integrity and security of a system, such as a database, operating system, or network. Ensuring that the system has not been compromised is crucial for maintaining trust.
+
+3. **Third-Party Trust:**
+   - Trust in third-party services or providers, such as cloud services or external authentication providers. This type of trust requires ensuring that third parties adhere to proper security practices and have been vetted.
+
+4. **Trust Models:**
+   - **Centralized Trust Models:** A single entity (like a Certificate Authority) is responsible for managing trust within a system.
+   - **Decentralized Trust Models:** Trust is established without a single authority, often using mechanisms like blockchain or peer-to-peer networks.
+
+## Access Control, Security, and Trust in Practice
+In practice, the integration of access control, security, and trust forms a comprehensive security framework for systems. Some real-world implementations include:
+
+- **Secure Web Applications:** Authentication mechanisms (e.g., OAuth, OpenID Connect) are used to control access to resources, ensuring that only authorized users can perform actions.
+- **Data Protection:** Encryption is used to ensure the confidentiality and integrity of data, while access control policies define who can read, write, or modify the data.
+- **Network Security:** Firewalls, VPNs, and intrusion detection systems protect systems and networks from unauthorized access while maintaining trust between communication entities.
+- **Cloud Computing Security:** Cloud providers use robust access control models (such as RBAC) to ensure secure multi-tenant environments, along with encryption and monitoring to ensure security and trust.
