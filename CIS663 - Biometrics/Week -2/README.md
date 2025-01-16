@@ -1,29 +1,3 @@
-# Machine Learning Analysis
-
-## Definitions
-
-| Metric               | Description                                                                                       |
-|----------------------|---------------------------------------------------------------------------------------------------|
-| **True Positive (TP)** | Correctly predicted positive cases. The model predicts "Positive" when the actual label is "Positive." |
-| **True Negative (TN)** | Correctly predicted negative cases. The model predicts "Negative" when the actual label is "Negative." |
-| **False Positive (FP)** | Incorrectly predicted positive cases (Type I Error). The model predicts "Positive" when the actual label is "Negative." |
-| **False Negative (FN)** | Incorrectly predicted negative cases (Type II Error). The model predicts "Negative" when the actual label is "Positive." |
-| **Condition Positive (P)** | Total actual positive cases in the dataset. \( P = TP + FN \) |
-| **Condition Negative (N)** | Total actual negative cases in the dataset. \( N = TN + FP \) |
-
-## Confusion Matrix
-
-Below is a typical confusion matrix layout for binary classification:
-
-|                   | **Predicted Positive** | **Predicted Negative** |
-|-------------------|-------------------------|-------------------------|
-| **Actual Positive** | True Positive (TP)      | False Negative (FN)     |
-| **Actual Negative** | False Positive (FP)     | True Negative (TN)      |
-
-These metrics are the foundation for evaluation measures such as **Precision**, **Recall**, **Accuracy**, and **F1 Score**.
-
----
-
 # Machine Learning Metrics
 ## 1. Classification Metrics
 - **Accuracy**: Proportion of correctly classified samples.<br>
@@ -76,3 +50,66 @@ These metrics are the foundation for evaluation measures such as **Precision**, 
 - **Macro Averaging**: Averages metric scores equally across classes.
 - **Micro Averaging**: Averages metric scores considering class frequency.
 - **Weighted Averaging**: Averages metric scores weighted by class frequency.
+
+---
+
+# Confusion Matrix Overview
+The confusion matrix is a key concept in evaluating the performance of classification models. Below is a summary of its components and layout.
+
+## Definitions
+
+| Metric               | Description                                                                                       |
+|----------------------|---------------------------------------------------------------------------------------------------|
+| **True Positive (TP)** | Correctly predicted positive cases. The model predicts "Positive" when the actual label is "Positive." |
+| **True Negative (TN)** | Correctly predicted negative cases. The model predicts "Negative" when the actual label is "Negative." |
+| **False Positive (FP)** | Incorrectly predicted positive cases (Type I Error). The model predicts "Positive" when the actual label is "Negative." |
+| **False Negative (FN)** | Incorrectly predicted negative cases (Type II Error). The model predicts "Negative" when the actual label is "Positive." |
+| **Condition Positive (P)** | Total actual positive cases in the dataset. \( P = TP + FN \) |
+| **Condition Negative (N)** | Total actual negative cases in the dataset. \( N = TN + FP \) |
+
+## Confusion Matrix Layout
+
+|                   | **Predicted Positive** | **Predicted Negative** |
+|-------------------|-------------------------|-------------------------|
+| **Actual Positive** | True Positive (TP)      | False Negative (FN)     |
+| **Actual Negative** | False Positive (FP)     | True Negative (TN)      |
+
+## Confusion Matrix Example
+
+Consider a binary classification problem with the following results:
+
+|                   | **Predicted Positive** | **Predicted Negative** |
+|-------------------|-------------------------|-------------------------|
+| **Actual Positive** | 50                      | 10                      |
+| **Actual Negative** | 5                       | 35                      |
+
+### Components:
+- **True Positive (TP)** = 50  
+  The model correctly identified 50 actual positives as positive.
+  
+- **False Negative (FN)** = 10  
+  The model failed to identify 10 actual positives, predicting them as negative.
+  
+- **False Positive (FP)** = 5  
+  The model incorrectly identified 5 actual negatives as positive.
+  
+- **True Negative (TN)** = 35  
+  The model correctly identified 35 actual negatives as negative.
+
+### Metric Calculations:
+
+1. Accuracy = (TP + TN) / (TP + TN + FP + FN) Accuracy = (50 + 35) / (50 + 35 + 5 + 10) = 85 / 100 = 0.85 (85%)
+2. Precision = TP / (TP + FP) Precision = 50 / (50 + 5) = 50 / 55 ≈ 0.91 (91%)
+3. Recall = TP / (TP + FN) Recall = 50 / (50 + 10) = 50 / 60 ≈ 0.83 (83%)
+4. F1 = 2 * (Precision * Recall) / (Precision + Recall) F1 = 2 * (0.91 * 0.83) / (0.91 + 0.83) F1 ≈ 2 * 0.7553 / 1.74 ≈ 0.867 (87%)
+5. Specificity = TN / (TN + FP) Specificity = 35 / (35 + 5) = 35 / 40 = 0.875 (87.5%)
+
+### Summary of Metrics for the Example:
+
+| Metric         | Value    |
+|----------------|----------|
+| Accuracy       | 85%      |
+| Precision      | 91%      |
+| Recall         | 83%      |
+| F1 Score       | 87%      |
+| Specificity    | 87.5%    |
