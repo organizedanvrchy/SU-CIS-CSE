@@ -30,6 +30,41 @@
 - **R² (Coefficient of Determination)**: Proportion of variance explained by the model.<br>
     R² = 1 - (SS_res / SS_tot)
 
+  Where:
+    - **SS_res**: Residual sum of squares, representing the sum of squared differences between the actual and predicted values.<br>
+    SS_res = Σ(yᵢ - ŷᵢ)²
+    
+    - `yᵢ`: Actual value.
+    - `ŷᵢ`: Predicted value.
+    
+    - **SS_tot**: Total sum of squares, representing the total variance in the actual values.<br>
+    SS_tot = Σ(yᵢ - ȳ)²
+    - `ȳ`: Mean of the actual values.
+    
+    - ### Interpretation
+        - **R² = 1**: Perfect fit. The model explains 100% of the variance in the data.
+        - **R² = 0**: The model explains none of the variance; it performs as poorly as predicting the mean of the data.
+        - **R² < 0**: The model performs worse than a baseline model that predicts the mean.
+
+    - ### Example Calculation
+    
+        - Consider the following data for actual (`yᵢ`) and predicted (`ŷᵢ`) values:
+            
+            | **Data Point** | **Actual (yᵢ)** | **Predicted (ŷᵢ)** |
+            |----------------|------------------|---------------------|
+            | 1              | 3                | 2.8                 |
+            | 2              | 5                | 5.3                 |
+            | 3              | 7                | 6.9                 |
+            | 4              | 9                | 8.7                 |
+    
+        - #### Step 1: Compute SS_res<br>
+          SS_res = Σ(yᵢ - ŷᵢ)² = (3 - 2.8)² + (5 - 5.3)² + (7 - 6.9)² + (9 - 8.7)² = 0.04 + 0.09 + 0.01 + 0.09 = 0.23
+        - #### Step 2: Compute SS_tot<br>
+          Mean (ȳ) = (3 + 5 + 7 + 9) / 4 = 6 SS_tot = Σ(yᵢ - ȳ)² = (3 - 6)² + (5 - 6)² + (7 - 6)² + (9 - 6)² = 9 + 1 + 1 + 9 = 20
+        - #### Step 3: Compute R²<br>
+          R² = 1 - (SS_res / SS_tot) = 1 - (0.23 / 20) = 1 - 0.0115 ≈ 0.9885 (98.85%)
+
+
 ## 3. Clustering Metrics
 - **Silhouette Score**: Measures how similar a data point is to its cluster compared to other clusters. <br>
     Silhouette = (b - a) / max(a, b) 
