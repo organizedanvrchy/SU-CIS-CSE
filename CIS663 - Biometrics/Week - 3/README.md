@@ -25,7 +25,9 @@ Singularity refers to unique points or features that play a key role in distingu
 
 <details>
   <summary>Singularities in Facial Recognition and Fingerprinting</summary>
-  
+
+---
+
 In __facial recognition__, singularities might include the distances between key facial landmarks like eyes, nose, and mouth, which are crucial for distinguishing individuals.
 
 In __fingerprinting__, there are three primary types of singularities that are commonly used in feature extraction:
@@ -40,6 +42,8 @@ In __fingerprinting__, there are three primary types of singularities that are c
 
 >Aligning the **cores** of two fingerprints is often the first step before a full comparison or match can be performed. By aligning the core points, biometric systems ensure that the fingerprint samples are in a similar orientation and position, improving the accuracy of further comparisons.
 
+---
+
 </details>
 
 ### Minutiae
@@ -49,8 +53,11 @@ Minutiae are specific, unique points within biometric data that are used to dist
 
 Minutiae are essential for creating unique templates, which are stored and later compared for identity verification or recognition.
 <details>
-<summary>Local Ridge Orientation in Minutiae</summary>
-In the context of fingerprint feature extraction, **local ridge orientation** refers to the direction of the ridge lines at a specific point in the fingerprint. This orientation is essential for accurately identifying minutiae points and ensuring a reliable comparison between fingerprint samples.
+  <summary>Local Ridge Orientation in Minutiae</summary>
+  
+---
+
+**Local ridge orientation** refers to the direction of the ridge lines at a specific point in the fingerprint. This orientation is essential for accurately identifying minutiae points and ensuring a reliable comparison between fingerprint samples.
 
 - _Importance of Local Ridge Orientation_ <br>
   The local ridge orientation helps define the pattern and structure of a fingerprint by describing the direction in which the ridges are aligned at each minutiae point. It plays a critical role in enhancing the accuracy of the minutiae matching process by:
@@ -62,11 +69,17 @@ In the context of fingerprint feature extraction, **local ridge orientation** re
   To accurately determine local ridge orientation, the following methods are commonly used:
   1. **Gradient-based techniques**: These methods compute the gradient of the pixel intensity in the fingerprint image to estimate the ridge orientation. By analyzing the intensity variation along the ridge lines, the orientation at each pixel can be determined.
   2. **Frequency-based methods**: These techniques calculate the frequency of ridges in a local window of the fingerprint image, which can then be used to derive the ridge orientation.
+
+---
+
 </details>
 
 <details>
-<summary>Least Mean Square (LMS) algorithm</summary>
-  The Least Mean Square (LMS) algorithm is a statistical technique used to estimate the local ridge orientation at each pixel in a fingerprint image. The main objective is to minimize the error between the estimated orientation and the actual ridge orientation. This approach helps to improve the precision of feature extraction, even in noisy or imperfect fingerprint images.
+  <summary>Least Mean Square (LMS) algorithm</summary>
+
+---
+
+The Least Mean Square (LMS) algorithm is a statistical technique used to estimate the local ridge orientation at each pixel in a fingerprint image. The main objective is to minimize the error between the estimated orientation and the actual ridge orientation. This approach helps to improve the precision of feature extraction, even in noisy or imperfect fingerprint images.
   
   - _How the LMS Algorithm Works_ <br>
     The LMS orientation estimation algorithm works by iteratively adjusting the orientation estimate to minimize the difference between the predicted and actual ridge orientations. Here's a step-by-step overview:
@@ -86,10 +99,16 @@ In the context of fingerprint feature extraction, **local ridge orientation** re
     1. **Accuracy**: <br> The LMS algorithm provides an accurate estimate of local ridge orientations, which is crucial for extracting minutiae points (e.g., ridge endings and bifurcations) accurately.
     2. **Noise Robustness**: <br> The algorithm is robust to noise, as it optimizes the orientation map over the entire fingerprint, minimizing the impact of local distortions.
     3. **Computational Efficiency**: <br> LMS is computationally efficient and can be applied to large fingerprint databases without requiring excessive processing power.
+
+---
+
 </details>
 
 <details>
   <summary>Local Ridge Frequency</summary>
+
+---
+
 Local ridge frequency plays a critical role in the following aspects of fingerprint recognition:
 - **Ridge Pattern Characterization**: <br>
   By determining the ridge frequency, the system can characterize the fingerprint’s texture and structure, which is unique to each individual.
@@ -124,6 +143,54 @@ There are several methods to estimate the local ridge frequency:
   - **Feature Enhancement**: It helps enhance the fingerprint image by compensating for distortions and noise, improving the clarity of ridge patterns.
   - **Pre-processing for Minutiae Extraction**: Understanding the ridge frequency allows for better extraction of minutiae points, which are then used for comparison and identification.
   - **Fingerprint Matching and Alignment**: Local ridge frequency helps align fingerprint images by ensuring that the ridge patterns match in scale and orientation, even when there are variations in the fingerprint samples.
+
+---
+
+</details>
+
+<details>
+  <summary>Singularity and Minutiae Extraction</summary>
+
+---
+
+### Singularity Extraction
+**Singularity Extraction** refers to the process of detecting distinctive points within the fingerprint image, known as singularities. These points help define the unique structure of the fingerprint and serve as key landmarks for comparison.
+
+#### Singularity Detection: Poincaré Index
+The **Poincaré index** is a mathematical tool used to detect and characterize singularities in a fingerprint. The Poincaré index is based on the local behavior of ridge lines around a singularity, specifically the curvature of the ridge pattern. It helps identify singularities such as:
+- **Loops**
+- **Whorls**
+- **Deltas** <br>
+The Poincaré index assigns a value to each pixel in the fingerprint image based on the rotation of ridge lines in its local neighborhood. Singularities are identified as regions where the index value significantly deviates, indicating the presence of a distinctive ridge pattern.
+
+#### Types of Singularities
+- **Core**: A central point within a loop or whorl, often used as a reference for comparison.
+- **Delta**: A point where ridge lines diverge, typically found at the intersection of ridge lines.
+
+---
+
+### Minutiae Extraction
+
+**Minutiae Extraction** is the process of detecting specific, unique features within the fingerprint ridges that can be used for identification. These minutiae are the key points of interest that serve as the primary features for fingerprint matching.
+
+#### Types of Minutiae
+
+1. **Ridge Endings**: Points where a ridge abruptly ends. Ridge endings are significant because they mark the termination of a ridge line.
+   
+2. **Bifurcations**: Points where a single ridge splits into two branches. These points are important for distinguishing between different fingerprint patterns.
+
+#### Minutiae Detection Process
+
+1. **Pre-processing**: The fingerprint image is enhanced to reduce noise and improve the clarity of ridge lines. This may involve contrast adjustment, noise reduction, and binarization.
+
+2. **Ridge Thinning**: The fingerprint image is thinned to reduce the ridges to a single pixel width, making it easier to detect minutiae points.
+
+3. **Minutiae Identification**: After thinning, the minutiae are identified by looking for specific patterns in the ridges:
+   - **Ridge Endings**: Detected when a ridge ends at a pixel with no connected neighbors in the direction of the ridge.
+   - **Bifurcations**: Identified when a ridge splits into two or more branches at a specific point.
+
+4. **Minutiae Marking**: The minutiae points are marked on the fingerprint image, typically by storing their coordinates and the orientation of the ridge at that point.
+   
 </details>
 
 ---
