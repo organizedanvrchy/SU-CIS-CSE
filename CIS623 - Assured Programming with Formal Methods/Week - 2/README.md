@@ -148,7 +148,7 @@ last "Haskell"   -- Output: 'l'
 
 ---
 
-# Syntax and Example
+# Haskell Syntax
 ### Function Definition:
 A basic function in Haskell is defined as follows:
 ```haskell
