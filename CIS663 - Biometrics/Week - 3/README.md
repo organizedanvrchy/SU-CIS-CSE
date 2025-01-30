@@ -1,4 +1,4 @@
-# Feature Extraction Overview
+# Feature Extraction in Fingerprinting
 Feature extraction is a vital step in biometric systems that involves isolating and identifying the key characteristics from raw biometric data to enable accurate identification and authentication. This process consists of several stages, each addressing a different aspect of the data.
 
 ## Pre-processing
@@ -15,7 +15,7 @@ Binarization is the process of converting a grayscale image into a black-and-whi
 
 ---
 
-# Feature Extraction in Fingerprinting
+## Feature Extraction
 After pre-processing, the next step is to extract the key features from the biometric data. Features are the distinctive characteristics that are extracted from biometric data, such as fingerprints, facial images, iris scans, etc. These features serve as the foundation for identifying or verifying individuals.
 
 ### Singularity
