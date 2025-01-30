@@ -15,7 +15,7 @@ Binarization is the process of converting a grayscale image into a black-and-whi
 
 ---
 
-## Feature Extraction
+# Feature Extraction in Fingerprinting
 After pre-processing, the next step is to extract the key features from the biometric data. Features are the distinctive characteristics that are extracted from biometric data, such as fingerprints, facial images, iris scans, etc. These features serve as the foundation for identifying or verifying individuals.
 
 ### Singularity
