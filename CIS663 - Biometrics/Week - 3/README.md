@@ -212,10 +212,134 @@ Alignment ensures that the matching process is consistent, even when the biometr
 Matching algorithms are computational methods used to compare extracted biometric features and assess their similarity. These algorithms evaluate the degree of resemblance between two biometric samples, and depending on the result, determine whether the samples belong to the same individual.
 
 ### Types of Matching Algorithms
-- **Template-based matching**: Compares a biometric sample to a stored template using feature vectors. This approach relies on the extraction of key features (e.g., minutiae in fingerprints, key facial landmarks).
-- **Correlation-based matching**: Measures the similarity between two samples by calculating their correlation, which assesses how well the two data sets align.
-- **Neural network-based matching**: Uses machine learning models, particularly deep learning techniques, to compare biometric data. These algorithms can learn complex patterns in biometric features and are often more robust in noisy or variable conditions.
-- **Distance-based matching**: Measures the similarity by calculating the distance between feature vectors. For example, Euclidean distance is often used to assess how far apart two feature vectors are in the feature space.
+
+<details>
+  <summary>Correlation Matching</summary>
+  
+### Description  
+**Correlation Matching** is a technique where two biometric patterns are compared by evaluating the correlation between their pixel intensities or feature sets. This method involves aligning biometric images (such as fingerprints) and calculating the degree of similarity between corresponding points.
+
+### Correlation Matching Formula  
+The correlation score **S(T, I)** between a template **T(x, y)** and an input image **I(x, y)** can be computed as:  
+
+`S(T, I) = max_(Δx, Δy, θ) CC(T, I^(Δx, Δy, θ))`
+
+Where:
+- `Δx`, `Δy`: Translations along the x and y axes, respectively.  
+- `θ`: Rotation applied to the input image `I`.  
+- `CC(T, I^(Δx, Δy, θ))`: Cross-correlation between the template `T` and the transformed input image `I` after translation and rotation adjustments.  
+- `max_(Δx, Δy, θ)`: The maximum correlation value across all possible translations and rotations.
+
+### Performance  
+Correlation Matching is not heavily used due to the following limitations:  
+
+- **Non-Linear Distortion:**  
+  Variations in impressions of the same finger can lead to significant differences, reducing matching accuracy.  
+
+- **Skin Conditions and Pressure Differences:**  
+  Factors such as dryness, moisture, or pressure changes can cause variations in brightness, contrast, and ridge thickness, making direct correlation less effective.  
+
+- **Computational Complexity:**  
+  The method is computationally expensive, requiring significant processing power and time for alignment and comparison.
+
+---
+
+</details>
+  
+<details>
+  <summary>Minutiae Matching</summary>
+  
+### Description  
+Minutiae-Based Matching involves comparing specific features of biometric patterns, particularly in fingerprints. These features include ridge endings, bifurcations, and other distinct points. The goal is to match the minutiae sets extracted from both the template and input images.
+
+### Minutiae Representation  
+Each minutia can be defined by the set:  
+`m = {c, x, y, θ}`
+Where:  
+- `c`: Type of minutia (ridge ending, bifurcation, etc.)  
+- `x`: X-coordinate of the minutia point  
+- `y`: Y-coordinate of the minutia point  
+- `θ`: Orientation angle of the minutia
+
+#### Template (T) and Input (I) Sets  
+Let:  
+- **Template (T)** = `{m₁, m₂, ..., mₙ}` be the set of minutiae in the template fingerprint.  
+- **Input (I)** = `{m₁', m₂', ..., mₖ'}` be the set of minutiae in the input fingerprint.  
+
+### Matching Parameters  
+#### Spatial Distance (sd)  
+The spatial distance between a template minutia `mi = {x, y}` and an input minutia `mj' = {x', y'}` is computed as:  
+`sd(mi, mj') = √((x - x')² + (y - y')²)`
+
+#### Directional Difference (dd)  
+The directional difference between template and input minutiae is defined as:  
+`dd(mi, mj') = |θ - θ'|`
+
+#### Minutiae Matching Score (mm)  
+The overall minutiae matching score `mm(T, I)` is computed based on the number of matched minutiae:  
+`mm(T, I) = | M(T, I) | / min(|T|, |I|)`
+
+Where:  
+- `M(T, I)`: Set of matched minutiae between `T` and `I`.  
+- `|T|`: Number of minutiae in the template.  
+- `|I|`: Number of minutiae in the input.  
+
+### Performance  
+Minutiae-based matching is highly reliable when accurate minutiae extraction is possible. It is:  
+
+- **Robust to Image Distortions:** Less affected by noise than pixel-based methods.  
+- **Efficient:** Requires lower computational complexity compared to Correlation Matching.  
+
+However, performance degrades when image quality is poor or when partial fingerprint data is available.  
+
+---
+
+### Pair Function (pf)  
+A **Pair Function** compares two minutiae points `mi = {xi, yi, θi}` and `mj = {xj, yj, θj}` based on their spatial and directional relationships.  
+
+The pair function is defined as:  
+`pf(mi, mj) = (d, Δθ)`
+
+Where:  
+- `d = √((xi - xj)² + (yi - yj)²)`: Euclidean distance between the minutiae points.  
+- `Δθ = |θi - θj|`: Absolute difference in orientation angles.  
+
+This function helps create robust minutiae pairs for further analysis in local matching.
+
+---
+
+### Local Minutiae Matching  
+Local minutiae matching focuses on comparing small neighborhoods of minutiae pairs between the **Template (T)** and **Input (I)** sets.  
+
+#### Neighborhood Definition  
+For each minutia `mi ∈ T`, define a neighborhood `Ni` consisting of all minutiae within a distance `R`:
+`Ni = {mj ∈ T | d(mi, mj) ≤ R}`
+
+#### Local Matching Score (lms)  
+The local matching score `lms(mi, I)` for a minutia `mi` in the template with a neighborhood `Ni` is computed as:  
+`lms(mi, I) = | M_local(Ni, I) | / | Ni |`
+
+Where:  
+- `M_local(Ni, I)`: Set of matched minutiae between `Ni` and corresponding neighborhoods in the input image `I`.  
+- `|Ni|`: Number of minutiae in the neighborhood.  
+
+---
+
+</details>
+
+<details>
+  <summary>Ridge Feature-based Matching</summary>
+  
+## Ridge Feature-based Matching  
+**Ridge Feature-based Matching** analyzes the global and local ridge features in biometric patterns. These features include ridge orientation, frequency, and curvature.  
+### Key Characteristics:
+- Utilizes both local and global pattern features.
+- Less sensitive to noise and distortions compared to minutiae-based techniques.
+- Requires sophisticated feature extraction algorithms.
+
+---
+
+</details>
 
 ### Performance Considerations
 Matching algorithms must be efficient and accurate to ensure biometric systems are both fast and reliable. Factors such as the size of the database, the complexity of the features, and the computational power available all play a role in the performance of these algorithms.
