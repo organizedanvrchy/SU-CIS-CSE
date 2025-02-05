@@ -1,4 +1,4 @@
-# Feature Extraction in Fingerprinting
+# Fingerprinting
 Feature extraction is a vital step in biometric systems that involves isolating and identifying the key characteristics from raw biometric data to enable accurate identification and authentication. This process consists of several stages, each addressing a different aspect of the data.
 
 ## Pre-processing
