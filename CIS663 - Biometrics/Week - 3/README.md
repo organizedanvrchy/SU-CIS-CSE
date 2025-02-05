@@ -330,8 +330,9 @@ Where:
 <details>
   <summary>Ridge Feature-based Matching</summary>
   
-## Ridge Feature-based Matching  
-**Ridge Feature-based Matching** analyzes the global and local ridge features in biometric patterns. These features include ridge orientation, frequency, and curvature.  
+## Description  
+**Ridge Feature-based Matching** analyzes the global and local ridge features in biometric patterns. These features include ridge orientation, frequency, and curvature.
+
 ### Key Characteristics:
 - Utilizes both local and global pattern features.
 - Less sensitive to noise and distortions compared to minutiae-based techniques.
