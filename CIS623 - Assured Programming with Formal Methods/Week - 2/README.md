@@ -3,7 +3,10 @@
 ## Introduction
 Haskell is a **purely functional programming language** that emphasizes immutability, first-class functions, and strong static typing. It is widely recognized for its use in academic and research environments but has also seen practical application in various industries such as finance, web development, and software engineering.
 
-## Key Features
+<details>
+   <summary>Key Features</summary>
+   
+### Key Features
 1. **Pure Functional Programming:**
    - Haskell is a purely functional language, meaning that functions have no side effects and every expression is a value.
    - Functions are first-class citizens, meaning they can be passed as arguments, returned from other functions, and assigned to variables.
@@ -24,11 +27,16 @@ Haskell is a **purely functional programming language** that emphasizes immutabi
 6. **Concurrent Programming:**
    - Haskell provides tools for **concurrent and parallel programming**, such as lightweight threads, software transactional memory (STM), and the `async` package, making it well-suited for scalable applications.
 
+</details>
+
 ---
 
 # Haskell Types
-Haskell has a **strong and static type system** that ensures safety and reliability in your programs. Types are strictly enforced, and you can use `:type <name>` in GHCi to inspect the type of any expression.
+Haskell has a **strong and static type system** that ensures safety and reliability in programs. Types are strictly enforced, and `:type <name>` can be used in GHCi to inspect the type of any expression.
 
+<details>
+   <summary>Common Data Types</summary>
+   
 ## Common Types in Haskell
 ### Bool  
   Represents logical values. Possible values are `True` or `False`.  
@@ -58,6 +66,11 @@ Example: 12345678901234567890.
 Represents a floating-point number with single precision. <br>
 Example: 3.14.
 
+</details>
+
+<details>
+   <summary>Common Data Structures</summary>
+
 ## Haskell Data Structures
 Haskell offers a variety of immutable data structures to efficiently model and manipulate data.
 
@@ -78,6 +91,11 @@ Define your own structures using `data`, e.g.:
 data Person = Person { name :: String, age :: Int }
 ```
 
+</details>
+
+<details>
+   <summary>Common Functions</summary>
+   
 ## Haskell Functions
 Functions are first-class citizens in Haskell, allowing for concise and expressive programming.
 
@@ -143,13 +161,18 @@ last [1, 2, 3]   -- Output: 3
 last "Haskell"   -- Output: 'l'
 ```
 
-> [!NOTE]
 > Like `head`, calling `last` on an empty list will result in a runtime error. Ensure the list is non-empty before using `last`.
 
+</details>
+   
 ---
 
 # Haskell Syntax
-### Function Definition:
+
+<details>
+   <summary>Function Definition</summary>
+   
+## Function Definition:
 A basic function in Haskell is defined as follows:
 ```haskell
 double :: Int -> Int
@@ -174,6 +197,11 @@ instance Eq Point where
 ```
 - **Eq** defines how two **Point** values can be compared for equality
 
+</details>
+
+<details>
+   <summary>Advanced Concepts</summary>
+   
 ## Advanced Concepts
 ### Monads:
 - Monads are a powerful abstraction in Haskell for handling side effects, such as I/O operations or state changes, in a pure functional way. <br>
@@ -184,6 +212,8 @@ instance Eq Point where
 
 ### Type Inference:
 - Haskell’s type system is powerful enough to allow for the automatic inference of types, reducing the need for explicit type annotations in many cases.
+
+</details>
 
 ---
 
@@ -307,9 +337,9 @@ Access Control Language (ACL) in Haskell is used to define and enforce access co
 ```
 
 ### Explanation:
-- **Principal** represents entities in the system, such as users or roles.
-- **Formula** represents logical statements regarding access.
-- **Statement** defines how principals interact with access control policies.
+- `Principal` represents entities in the system, such as users or roles.
+- `Formula` represents logical statements regarding access.
+- `Statement` defines how principals interact with access control policies.
 
 ## Why Use ACL in Haskell?
 - **Precision**: <br>
