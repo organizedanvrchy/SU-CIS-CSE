@@ -210,59 +210,65 @@ Where:
 In this example, we are given a set of assumptions and use these assumptions to prove the statement `purchase`.
 
 ### Assumptions:
+  1. **MC controls (Lee controls purchase)**
+  2. **CA controls (KL ⇒ Lee)**
+  3. **KCA ⇒ CA**
+  4. **KCA says (KL ⇒ Lee)**
+  5. **KL says purchase**
+  6. **MC says (Lee controls purchase)**
+  7. **Lee controls purchase** (From 1, 6 using the *Controls* rule)
+  8. **CA says (KL ⇒ Lee)**
+  9. **KL ⇒ Lee**
+  10. **Lee says purchase**
+  11. **purchase** (Conclusion)
 
-1. `MC controls (Lee controls purchase)`
-2. `CA controls (KL ⇒ Lee)`
-3. `KCA ⇒ CA`
-4. `KCA says (KL ⇒ Lee)`
-5. `KL says purchase`
-6. `MC says (Lee controls purchase)`
+### Formal Proof:
 
-#### Goal:
-Prove the statement `purchase`.
+#### Proof Steps:
+1. **Lee controls purchase**:  
+   From assumption (1) and assumption (6), we apply the *Controls* rule to conclude that `Lee controls purchase`.
 
-#### Formal Proof Steps:
+2. **CA says (KL ⇒ Lee)**:  
+   Assumption (8) directly gives us this statement.
 
-We proceed by applying the appropriate inference rules based on the given assumptions:
+3. **KL ⇒ Lee**:  
+   From assumption (2) and assumption (8), we apply the *Controls* rule to conclude `KL ⇒ Lee`.
 
-**Step 1**: `Lee controls purchase`  
-- From assumption (1) and assumption (6), apply the *Controls* rule to conclude that "Lee controls purchase".
+4. **Lee says purchase**:  
+   From assumption (5), we conclude that `Lee says purchase`.
 
-**Step 2**: `CA says (KL ⇒ Lee)`  
-- This follows directly from assumption (4).
+5. **purchase**:  
+   Using the *Controls* rule, we combine assumptions (7) and (10) to conclude the statement `purchase`.
 
-**Step 3**: `KL ⇒ Lee`  
-- This is derived from assumptions (2) and (8) by applying the *Controls* rule, which states that since `CA controls (KL ⇒ Lee)`, the relation must hold.
+#### Inference Rule Applications:
+1. **Controls**:  
+   - From assumptions (1) and (6), we conclude:  
+     `Lee controls purchase` (Step 7).
 
-**Step 4**: `Lee says purchase`  
-- From assumption (5), it is given that "KL says purchase." Therefore, using the *Speaks For* derived inference, we can deduce that Lee says `purchase`.
+2. **Speaks For (Derived)**:  
+   - From assumptions (3) and (4), we apply the *Speaks For* rule to derive:  
+     `KCA says (KL ⇒ Lee)` (Step 4).
 
-**Step 5**: `purchase`  
-- Finally, by applying the *Controls* rule from assumption (7) and assumption (10), we can conclude that the statement `purchase` holds.
+3. **Controls**:  
+   - From assumptions (2) and (8), we apply the *Controls* rule to conclude:  
+     `KL ⇒ Lee` (Step 3).
 
-#### Summary of the Proof:
+4. **Speaks For (Derived)**:  
+   - From assumptions (9) and (5), we apply the *Speaks For* rule to conclude:  
+     `Lee says purchase` (Step 4).
 
-- `Lee controls purchase` (from (1) and (6) by Controls)
-- `CA says (KL ⇒ Lee)` (directly from (4))
-- `KL ⇒ Lee` (derived from (2) and (8) by Controls)
-- `Lee says purchase` (derived from (5) by Speaks For)
-- `purchase` (derived from (7) and (10) by Controls)
-
-#### Conclusion:
-By applying the *Controls* and *Speaks For* inference rules, we have proven the statement `purchase` based on the provided assumptions.
-
+5. **Controls**:  
+   - From assumptions (7) and (10), we conclude:  
+     `purchase` (Step 5).
 ---
 
 # Proof Trees
-
 Proof trees are a way of visualizing the structure of a formal proof, particularly when using logical inference rules in systems like Kripke structures. Working backwards from a conclusion, we can create a proof tree by breaking down the reasoning step by step.
 
 ## Working Backwards to Create Proof Trees
-
 To build a proof tree, we start with the statement we aim to prove (the conclusion) and trace backward through the assumptions and inference rules that lead to the conclusion. Each node in the tree represents a statement, and the edges show the inference rules used to derive that statement.
 
 ### Steps for Creating Proof Trees:
-
 1. **Start with the conclusion**: Begin by writing down the statement you want to prove at the top of the tree.
    
 2. **Apply inference rules**: For each node, apply the relevant inference rule (such as *Controls*, *Speaks For*, etc.) that allows you to derive that statement. Each rule typically has one or more premises.
@@ -274,42 +280,25 @@ To build a proof tree, we start with the statement we aim to prove (the conclusi
 5. **End at assumptions**: Once all premises are reduced to assumptions, the proof tree is complete.
 
 ### Example Proof Tree
+We can visualize the proof as a tree, where the conclusion (`purchase`) is derived from various assumptions using the appropriate inference rules:
 
-Let's demonstrate creating a proof tree using the assumptions and proof steps from the earlier example, where we aim to prove the statement `purchase`:
-
-1. **Conclusion**: `purchase` (Top node)
-   
-2. **Apply Controls**: From assumption (7) and assumption (10), we apply the *Controls* rule to conclude `purchase`.
-
-3. **Apply Speaks For**: From assumption (5), we deduce that `Lee says purchase`.
-
-4. **Apply Controls**: From assumption (1) and assumption (6), we conclude that `Lee controls purchase`.
-
-5. **Apply Controls**: From assumption (2) and assumption (8), we conclude that `KL ⇒ Lee`.
-
-6. **Apply Speaks For**: From assumption (4), we deduce that `KCA says (KL ⇒ Lee)`.
-
-7. **End with assumptions**: The tree's leaves are the assumptions (1), (2), (4), (5), and (6) which are used to derive the above conclusions.
-
-### Proof Tree Diagram:
 ```text
-               purchase
-                  |
-            Controls (7, 10)
-                  |
-           Lee says purchase
-                  |
-            Speaks For (5)
-                  |
-         Lee controls purchase
-                  |
-            Controls (1, 6)
-                  |
-               KL ⇒ Lee
-                  |
-            Controls (2, 8)
-                  |
-          KCA says (KL ⇒ Lee)
-                  |
-   Assumptions (1), (2), (4), (5), (6)
-```
+                   purchase
+                      |
+                Controls (7, 10)
+                      |
+               Lee says purchase
+                      |
+                Speaks For (5)
+                      |
+             Lee controls purchase
+                      |
+                Controls (1, 6)
+                      |
+                   KL ⇒ Lee
+                      |
+                Controls (2, 8)
+                      |
+              KCA says (KL ⇒ Lee)
+                      |
+      Assumptions (1), (2), (4), (5), (6)
