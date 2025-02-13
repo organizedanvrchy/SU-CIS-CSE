@@ -277,10 +277,11 @@ The Hamming distance is a simple yet highly effective measure for comparing bina
   - The number of differing bits is divided by the total number of bits to compute the Hamming distance.  
 
 - **Formula:**  
-  \[
-  Hamming \, Distance = \frac{\sum (A \oplus B)}{N}
-  \]  
-  Where \( A \) and \( B \) are binary iris codes, and \( N \) is the total number of bits.
+  
+  Hamming Distance = ∑ (A ⊕ B) ÷ N
+  
+  
+  where **A** and **B** are binary iris codes, and **N** is the total number of bits.
 
 - **Advantages:**  
   - Fast and computationally efficient.  
@@ -304,10 +305,9 @@ This method assigns weights to feature components before computing the Euclidean
   - The Euclidean distance is computed between weighted feature vectors.
 
 - **Formula:**  
-  \[
-  D = \sqrt{\sum_{i=1}^{N} w_i (x_i - y_i)^2}
-  \]  
-  Where \( w_i \) are weights, and \( x_i \) and \( y_i \) are feature components.
+  D = √(∑₍ᵢ₌₁₎ⁿ wᵢ (xᵢ - yᵢ)²)
+  
+  where **wᵢ** are weights, and **xᵢ** and **yᵢ** are feature components.
 
 - **Advantages:**  
   - Improved matching accuracy by emphasizing important features.  
@@ -334,10 +334,9 @@ Normalized correlation measures the similarity between two feature vectors by ev
   - The result is normalized to ensure the correlation value lies between -1 and 1.
 
 - **Formula:**  
-  \[
-  r = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum (x_i - \bar{x})^2 \sum (y_i - \bar{y})^2}}
-  \]  
-  Where \( \bar{x} \) and \( \bar{y} \) are the means of the feature vectors.
+  r = ∑ (xᵢ - x̄)(yᵢ - ȳ) ÷ √(∑ (xᵢ - x̄)² ∑ (yᵢ - ȳ)²)
+  
+  where **x̄** and **ȳ** are the means of the feature vectors.
 
 - **Advantages:**  
   - Robust to variations in feature intensity.  
