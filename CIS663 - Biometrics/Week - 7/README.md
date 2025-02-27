@@ -76,7 +76,3 @@ where:
 - When false positives are more costly, the decision threshold is set higher.
 - When false negatives are more costly, the decision threshold is set lower.
 - The optimal operating point minimizes DCF, considering the trade-off between error types.
-
-## Conclusion
-ROC and DET curves are essential tools for evaluating classifier performance. While ROC curves provide an overall assessment, DET curves offer detailed insight into error tradeoffs. AUC helps summarize ROC performance but has limitations in real-world decision-making. Decision Cost Functions allow classifiers to be optimized for specific use cases based on error costs.
-
